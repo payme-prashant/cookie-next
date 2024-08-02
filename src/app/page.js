@@ -12,8 +12,7 @@ export default function Home() {
         const sdk = new window.BoxPrinterSDK(); // Replace with your SDK's actual constructor
         //console.log(sdk, "sdk");
         sdk.setName("John Doe");
-        sdk.createBox();
-        //setSdkLoaded(true);
+        sdk.createBox();        //setSdkLoaded(true);
       };
       document.body.appendChild(script);
     };
