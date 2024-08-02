@@ -1,6 +1,27 @@
+"use client";
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    const loadSdkScript = () => {
+      const script = document.createElement("script");
+      script.src =
+        "https://second-dnsbfherbwfhwe.s3.eu-north-1.amazonaws.com/different.js";
+      script.onload = () => {
+        const sdk = new window.BoxPrinterSDK(); // Replace with your SDK's actual constructor
+        //console.log(sdk, "sdk");
+        sdk.setName("John Doe");
+        sdk.createBox();
+        //setSdkLoaded(true);
+      };
+      document.body.appendChild(script);
+    };
+
+    if (typeof window !== "undefined") {
+      loadSdkScript();
+    }
+  }, []);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
